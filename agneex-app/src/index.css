@@ -63,7 +63,8 @@ section {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin: 4rem auto;
+    margin: 3rem auto;
+    padding-bottom: 12rem;
 }
 
 .logo {
@@ -96,4 +97,11 @@ section {
 .search-btn:hover {
     border: #bfbfbf 1px solid;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px;
+}
+
+
+/*footer styles*/
+
+footer {
+    background: #ebebeb;
 }
