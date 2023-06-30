@@ -1,24 +1,20 @@
 import Logo from "../../assets/images/logo.png"
-import {CgSearch} from "react-icons/cg"
+import Search from "../shared/search/Search";
+import './Home.css'
 
 const Home = () => {
+
+
+
+
 return (
 	<>
-<section>
-	<div className="main">
+
+	<section className="main-content">
 		<img src={Logo} alt="logo" className="logo" />
+			<Search/>
+	</section>
 
-		<div className="search-home">
-		<CgSearch 
-		size="16px" 
-		color="#5e5e5e"
-		/>	
-		<input type="search"  />
-		</div>
-
-		<button className="search-btn">Buscar</button>
-	</div>
-</section>
 </>
 )
 }
