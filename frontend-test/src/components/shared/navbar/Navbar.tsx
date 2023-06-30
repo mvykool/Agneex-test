@@ -15,7 +15,7 @@ const Navbar = () => {
 			{isResultsPage ? (
 
 				<div className='nav-left'>
-					<Link to={"/"}><img src={Logo} alt="logo" className='logo-result' />	</Link>
+					<Link to={"/"}><img src={Logo} alt="logo" className='logo-result' /></Link>
 					<Search/>
 				</div>
 			

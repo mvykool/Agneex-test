@@ -57,13 +57,13 @@ nav {
 }
 
 .menu-btn:hover {
-    background: #ebebeb;
+    background: var(--icon-hover);
 }
 
 .nav-btn {
     color: #fff;
     border: none;
-    background: #1b77ef;
+    background: var(--nav-blue-btn);
     cursor: pointer;
     transition: 0.2s;
     padding: 12px 25px;
@@ -72,7 +72,7 @@ nav {
 }
 
 .nav-btn:hover {
-    background: #1268d8;
+    background: var(--nav-blue-btn-hover);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
