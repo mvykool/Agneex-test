@@ -9,6 +9,7 @@ interface Props {
 const SearchProvider: React.FC<Props> = ({ children }) => {
   const [data, setData] = useState<IData[]>([]);
   const [searchResults, setSearchResults] = useState<IData[]>([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     fetchData().then((fetchedData: IData[]) => {
@@ -17,18 +18,21 @@ const SearchProvider: React.FC<Props> = ({ children }) => {
     });
   }, []);
 
-  const search = (searchTerm: string) => {
-    if (!searchTerm.trim()) {
+  const search = (newSearchTerm: string) => {
+    setSearchTerm(newSearchTerm);
+    if (!newSearchTerm.trim()) {
       setSearchResults(data);
     } else {
       setSearchResults(
-        data.filter(item => item.title.toLowerCase().includes(searchTerm.toLowerCase()))
+        data.filter(item => item.title.toLowerCase().includes(newSearchTerm.toLowerCase()))
       );
     }
   };
 
   const value: SearchState = {
     searchResults,
+    searchTerm,
+    setSearchTerm,
     search
   };
 

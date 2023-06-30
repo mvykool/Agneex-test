@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { SearchContext } from '../../../context/SearchContext';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { CgSearch, CgClose } from 'react-icons/cg';
@@ -7,12 +7,18 @@ import './Search.css';
 const Search = () => {
 
     const location = useLocation();
-    const isResultsPage = location.pathname === '/results';
     const navigate = useNavigate();
-    const [searchTerm, setSearchTerm] = useState('');
-    const { search } = useContext(SearchContext);
+    const { search, searchTerm, setSearchTerm } = useContext(SearchContext);
 
+    const isResultsPage = location.pathname === '/results';
     const [inputValue, setInputValue] = useState('');
+
+    //empty search term when home page is on
+    useEffect(() => {
+        if (location.pathname === '/') {
+        setSearchTerm('');
+        }
+    }, [location.pathname, setSearchTerm]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         setInputValue(e.target.value);
@@ -42,7 +48,7 @@ const Search = () => {
                         <CgClose onClick={handleInputClean} className="icon-close-right" />
                     ) : null}
 
-                    <input type="search" value={inputValue} onChange={handleInputChange} />
+                    <input type="search" value={searchTerm} onChange={handleInputChange} placeholder='Buscar' />
 
                     {!isResultsPage && inputValue ? (
                         <CgClose onClick={handleInputClean} className="icon-close" />
