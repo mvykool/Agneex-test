@@ -7,7 +7,7 @@ const Search = () => {
 
     const location = useLocation();
     const navigate = useNavigate();
-    const { search, searchTerm, setSearchTerm } = useContext(SearchContext);
+    const { search, searchTerm, setSearchTerm, setErrorMessage } = useContext(SearchContext);
 
     const isResultsPage = location.pathname.startsWith(`/results`);
     const [inputValue, setInputValue] = useState(searchTerm || '');
@@ -33,10 +33,11 @@ const Search = () => {
         e.preventDefault();
         if (!inputValue.trim()) {
             if(isResultsPage){
-                setShowErrorMessage(true);
+                setErrorMessage("Please provide a valid search term such as: lion, horse, bear");
             }
             return;
         }
+        setErrorMessage(""); 
         setSearchTerm(inputValue); 
         navigate(`/results/${inputValue}`);
         search(inputValue);

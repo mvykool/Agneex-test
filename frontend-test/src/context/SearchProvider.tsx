@@ -29,11 +29,15 @@ const SearchProvider: React.FC<Props> = ({ children }) => {
     }
   };
 
+  const [errorMessage, setErrorMessage] = useState('');
+
   const value: SearchState = {
     searchResults,
+    search,
     searchTerm,
     setSearchTerm,
-    search
+    errorMessage,
+    setErrorMessage,
   };
 
   return (

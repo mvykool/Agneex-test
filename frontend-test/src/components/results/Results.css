@@ -57,11 +57,16 @@
 .selected-image {
     position: absolute;
     right: 10rem;
+    width: 20%;
+}
+
+.selected-img-card {
+    position: absolute;
     display: flex;
+    width: 90%;
     justify-content: center;
     flex-direction: column;
     gap: 10px;
-    width: 25%;
     border: 1px solid var(--border-color);
     padding: 10px;
     border-radius: 5px;
@@ -87,4 +92,33 @@
 .no-data-container div span {
     color: #000;
     font-weight: 700;
+}
+
+.error {
+    margin-left: 12rem;
+    margin-top: 2rem;
+}
+
+.loader {
+    margin: 2rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    border: 5px solid var(--loader);
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
