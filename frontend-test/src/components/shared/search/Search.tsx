@@ -1,7 +1,6 @@
 import { useState, useContext, useEffect } from 'react';
 import { SearchContext } from '../../../context/SearchContext';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { CgSearch, CgClose } from 'react-icons/cg';
 import './Search.css';
 
 const Search = () => {
@@ -44,8 +43,8 @@ const Search = () => {
             <form onSubmit={handleSubmit}>
 
                 <div className={isResultsPage ? 'search-result' : 'search-home'}>
-
-                    <CgSearch onClick={handleSubmit} className={isResultsPage ? "icon-result" : "icon-home"} />
+                    
+                    <i onClick={() => handleSubmit} className={isResultsPage ? "icon-result fa fa-search" : "icon-home fa fa-search"}></i>
                     {isResultsPage ? (
                         <div className='color-icons'>
                         <i className="fas fa-microphone fa-1x"></i>
@@ -54,17 +53,17 @@ const Search = () => {
                     ) : null}
 
                     {isResultsPage && inputValue ? (
-                        <CgClose onClick={handleInputClean} className="icon-close-right" />
+                        <i onClick={() => handleInputClean()} className="fa fa-times icon-close"></i>
                     ) : null}
 
                     <input type="search" value={searchTerm} onChange={handleInputChange} placeholder='Buscar' />
 
                     {!isResultsPage && inputValue ? (
-                        <CgClose onClick={handleInputClean} className="icon-close" />
+                        <i onClick={() => handleInputClean()} className="fa fa-times icon-close"></i>
                     ) : null}
                     
                     {!isResultsPage ? (
-                        <div className='color-icons'>
+                        <div className='color-icons'>  
                         <i className="fas fa-microphone fa-1x"></i>
                         <i className="fas fa-camera fa-1x"></i>
                     </div>

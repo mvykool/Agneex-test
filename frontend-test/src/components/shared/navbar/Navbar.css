@@ -52,16 +52,29 @@ nav {
     text-decoration: underline #202020;
 }
 
-.nav-icon {
-    font-size: 40px;
-    color: var(--icon);
-    border-radius: 50%;
-    cursor: pointer;
+.fa-grid-round {
+    font-size: 16px;
+    height: 40px;
+    color: #000;
+    width: 40px;
+}
+
+.nav-icon-bg {
     padding: 8px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
     transition: 0.3s;
 }
 
-.nav-icon:hover {
+.nav-icon {
+    font-size: 20px;
+    color: var(--icon);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.nav-icon-bg:hover {
     background: var(--icon-hover);
 }
 

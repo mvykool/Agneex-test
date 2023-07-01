@@ -1,6 +1,4 @@
 import { useLocation, Link } from 'react-router-dom'
-import {CgMenuGridO} from 'react-icons/cg';
-import {IoSettingsOutline} from 'react-icons/io5';
 import Logo from "../../../assets/images/logo.png"
 import Search from '../search/Search';
 import './Navbar.css';
@@ -22,8 +20,10 @@ const Navbar = () => {
 				</div>
 			
 				<div className='nav-right-result'>
-				<IoSettingsOutline className="nav-icon"/>
-				<CgMenuGridO className="nav-icon"/>
+				<i className="fas fa-gear nav-icon nav-icon-bg"></i>
+				<button className='nav-icon-bg'>
+					<i className="gg-menu-grid-o nav-icon"></i>
+					</button>
 				<button className="nav-btn">Acceder</button>
 				</div>
 
@@ -35,7 +35,9 @@ const Navbar = () => {
 				<div className='nav-right'>
 					<a href="#" className="nav-link">Gmail</a>
 					<a href="#" className="nav-link">Imágenes</a>
-					<CgMenuGridO className="nav-icon"/>
+					<button className='nav-icon-bg'>
+					<i className="gg-menu-grid-o nav-icon"></i>
+					</button>
 					<button className="nav-btn">Acceder</button>
 				</div>
 				</>

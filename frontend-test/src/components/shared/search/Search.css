@@ -38,10 +38,10 @@
 }
 
 .icon-result {
-    margin: 0 5px;
+    margin: 0 2px 0 10px;
     cursor: pointer;
     color: var(--icon);
-    font-size: 32px;
+    font-size: 16px;
     padding: 7px;
 }
 
@@ -51,19 +51,12 @@
 }
 
 .icon-close {
-    margin: 0 5px;
-    cursor: pointer;
-    color: var(--icon);
-    font-size: 16px;
-}
-
-.icon-close-right {
     margin-right: 10px;
     padding-right: 10px;
     color: var(--icon);
     cursor: pointer;
-    font-size: 27px;
-    border-right: 1px solid lightgrey;
+    font-size: 16px;
+    border-right: var(--close-icon-border) solid 1px;
 }
 
 .search-home {
