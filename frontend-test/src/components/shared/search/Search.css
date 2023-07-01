@@ -37,6 +37,11 @@
     -webkit-text-fill-color: transparent;
 }
 
+.search-icon-bg {
+    background: none;
+    border: none;
+}
+
 .icon-result {
     margin: 0 2px 0 10px;
     cursor: pointer;

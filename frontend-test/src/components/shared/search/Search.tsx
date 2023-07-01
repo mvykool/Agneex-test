@@ -11,6 +11,7 @@ const Search = () => {
 
     const isResultsPage = location.pathname.startsWith(`/results`);
     const [inputValue, setInputValue] = useState(searchTerm || '');
+    const [showErrorMessage, setShowErrorMessage] = useState(false);
 
     useEffect(() => {
         if (location.pathname === '/') {
@@ -21,19 +22,22 @@ const Search = () => {
 
     const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         setInputValue(e.target.value);
+        setShowErrorMessage(false);
     };
 
     const handleInputClean = () => {
         setInputValue('');
-        // remove setSearchTerm('') here
     };
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (!inputValue.trim()) {
+            if(isResultsPage){
+                setShowErrorMessage(true);
+            }
             return;
         }
-        setSearchTerm(inputValue);  // set searchTerm here
+        setSearchTerm(inputValue); 
         navigate(`/results/${inputValue}`);
         search(inputValue);
     };
@@ -44,7 +48,7 @@ const Search = () => {
 
                 <div className={isResultsPage ? 'search-result' : 'search-home'}>
                     
-                    <i onClick={() => handleSubmit} className={isResultsPage ? "icon-result fa fa-search" : "icon-home fa fa-search"}></i>
+                    <button className='search-icon-bg'><i className={isResultsPage ? "icon-result fa fa-search" : "icon-home fa fa-search"}></i></button>
                     {isResultsPage ? (
                         <div className='color-icons'>
                         <i className="fas fa-microphone fa-1x"></i>
@@ -75,6 +79,10 @@ const Search = () => {
                     <button type='submit' className="search-btn">
                         Buscar
                     </button>
+                )}
+
+                {showErrorMessage && isResultsPage && (
+                    <p className="error-message">Please enter a search term</p>
                 )}
 
             </form>
