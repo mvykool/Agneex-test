@@ -12,6 +12,31 @@
     ;
 }
 
+.color-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.fa-camera {
+    background: conic-gradient(from -150deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 100deg 270deg, #fbbc05 270deg) 60% 12%/170% 150% no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: 20px;
+    cursor: pointer;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.fa-microphone {
+    background: conic-gradient(from -150deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 70% 12%/150% 150% no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: 20px;
+    cursor: pointer;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
 .icon-result {
     margin: 0 5px;
     cursor: pointer;

@@ -31,7 +31,12 @@ footer p {
 }
 
 .sub-footer ul li {
+    cursor: pointer;
     margin: 0 1rem;
     font-weight: 400;
     color: #5a5a5a;
+}
+
+.sub-footer ul li:hover {
+    text-decoration: underline;
 }

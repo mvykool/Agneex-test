@@ -1,0 +1,36 @@
+.results-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 5rem;
+    padding-left: 11rem;
+}
+
+.under-nav {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 11.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.under-nav-list {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+}
+
+.under-nav-list li {
+    cursor: pointer;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 40px;
+    text-align: center;
+    line-height: 1;
+    transition: 0.1s;
+}
+
+.under-nav-list li:hover {
+    background: var(--icon-hover);
+}

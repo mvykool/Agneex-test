@@ -32,6 +32,9 @@ const Search = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if (!searchTerm.trim()) {
+            return;
+        }
         navigate('/results');
         search(searchTerm);
     };
@@ -43,6 +46,12 @@ const Search = () => {
                 <div className={isResultsPage ? 'search-result' : 'search-home'}>
 
                     <CgSearch onClick={handleSubmit} className={isResultsPage ? "icon-result" : "icon-home"} />
+                    {isResultsPage ? (
+                        <div className='color-icons'>
+                        <i className="fas fa-microphone fa-1x"></i>
+                        <i className="fas fa-camera fa-1x"></i>
+                    </div>
+                    ) : null}
 
                     {isResultsPage && inputValue ? (
                         <CgClose onClick={handleInputClean} className="icon-close-right" />
@@ -52,6 +61,13 @@ const Search = () => {
 
                     {!isResultsPage && inputValue ? (
                         <CgClose onClick={handleInputClean} className="icon-close" />
+                    ) : null}
+                    
+                    {!isResultsPage ? (
+                        <div className='color-icons'>
+                        <i className="fas fa-microphone fa-1x"></i>
+                        <i className="fas fa-camera fa-1x"></i>
+                    </div>
                     ) : null}
 
                 </div>
