@@ -56,6 +56,7 @@
 
 .selected-image {
     position: absolute;
+    top: 12rem;
     right: 10rem;
     width: 20%;
 }
@@ -70,6 +71,10 @@
     border: 1px solid var(--border-color);
     padding: 10px;
     border-radius: 5px;
+}
+
+.selected-img-card p {
+    font-size: 14px;
 }
 
 .query {
