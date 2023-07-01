@@ -9,33 +9,33 @@ const Search = () => {
     const navigate = useNavigate();
     const { search, searchTerm, setSearchTerm } = useContext(SearchContext);
 
-    const isResultsPage = location.pathname === '/results';
-    const [inputValue, setInputValue] = useState('');
+    const isResultsPage = location.pathname.startsWith(`/results`);
+    const [inputValue, setInputValue] = useState(searchTerm || '');
 
-    //empty search term when home page is on
     useEffect(() => {
         if (location.pathname === '/') {
         setSearchTerm('');
+        setInputValue('');
         }
     }, [location.pathname, setSearchTerm]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         setInputValue(e.target.value);
-        setSearchTerm(e.target.value);
     };
 
     const handleInputClean = () => {
         setInputValue('');
-        setSearchTerm('');
+        // remove setSearchTerm('') here
     };
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (!searchTerm.trim()) {
+        if (!inputValue.trim()) {
             return;
         }
-        navigate('/results');
-        search(searchTerm);
+        setSearchTerm(inputValue);  // set searchTerm here
+        navigate(`/results/${inputValue}`);
+        search(inputValue);
     };
 
     return (
@@ -56,7 +56,7 @@ const Search = () => {
                         <i onClick={() => handleInputClean()} className="fa fa-times icon-close"></i>
                     ) : null}
 
-                    <input type="search" value={searchTerm} onChange={handleInputChange} placeholder='Buscar' />
+                    <input type="search" value={inputValue} onChange={handleInputChange} placeholder='Buscar' />
 
                     {!isResultsPage && inputValue ? (
                         <i onClick={() => handleInputClean()} className="fa fa-times icon-close"></i>

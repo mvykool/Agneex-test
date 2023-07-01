@@ -1,4 +1,5 @@
 import { useState, useContext } from 'react';
+import { useParams } from 'react-router-dom';
 import { SearchContext } from '../../context/SearchContext';
 import './Results.css';
 
@@ -9,6 +10,8 @@ const Results = () => {
   const handleTitleClick = (index: number) => {
     setSelectedItemIndex(index);
   };
+
+  const { searchTerm } = useParams();
 
   return (
     <>
@@ -24,14 +27,27 @@ const Results = () => {
         </ul>
       </div>
 
+      {searchResults.length > 0 && (
+        <p className='query'>Resultados de: <span>{searchTerm}</span></p>
+      )}
+
       <section className='results-container'>
-        {searchResults.map((item, index) => (
-          <div key={item.id} className='result-block'>
-            <small>{item.url}</small>
-            <h2 onClick={() => handleTitleClick(index)}>{item.title}</h2>
-            <p>{item.description}</p>
+        {searchResults.length > 0 ? (
+          searchResults.map((item, index) => (
+            <div key={item.id} className='result-block'>
+              <small>{item.url}</small>
+              <h2 onClick={() => handleTitleClick(index)}>{item.title}</h2>
+              <p>{item.description}</p>
+            </div>
+          ))
+        ) : (
+
+          <div className='no-data-container'>
+            <div>Not results found for  "<span>{searchTerm}"</span> </div>
+            <div >Trying looking for: <span>bear, lion, cat, bird, cow, horse </span> </div>
           </div>
-        ))}
+          
+        )}
 
         {selectedItemIndex !== null && (
           <div className='selected-image'>

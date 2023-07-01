@@ -1,12 +1,21 @@
-import { useLocation, Link } from 'react-router-dom'
+import { useContext } from 'react';
+import { useLocation, Link} from 'react-router-dom'
 import Logo from "../../../assets/images/logo.png"
 import Search from '../search/Search';
+import { SearchContext } from '../../../context/SearchContext';
 import './Navbar.css';
+
 
 const Navbar = () => {
 
+	const { searchTerm} = useContext(SearchContext);
 	const location = useLocation();
-	const isResultsPage = location.pathname === '/results';
+	const isResultsPage = location.pathname === `/results/${searchTerm}`;
+	const isHomePage = location.pathname === "/";
+
+	if (!isHomePage && !isResultsPage) {
+		return null;
+	}
 
 	return (
 		<nav>
@@ -29,7 +38,7 @@ const Navbar = () => {
 
 				</>
 
-			) :(
+			) :  (
 
 				<>
 				<div className='nav-right'>
