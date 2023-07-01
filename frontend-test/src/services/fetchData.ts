@@ -24,7 +24,7 @@ const data = [...new Array(100)].map((_item, index) => {
 return new Promise<IData[]>((resolve) => {
 	setTimeout(() => {
 	resolve(data);
-	}, 2000); 
+	}, 200); 
 });
 };
 

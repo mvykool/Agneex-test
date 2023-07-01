@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { SearchContext, IData, SearchState } from './SearchContext';
-import fetchData from '../service/fetchData';
+import fetchData from '../services/fetchData';
 
 interface Props {
   children: React.ReactNode;
