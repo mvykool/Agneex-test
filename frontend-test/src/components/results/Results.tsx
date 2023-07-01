@@ -15,7 +15,7 @@ const Results = () => {
     setIsLoading(true)
     setTimeout(() => {
       setIsLoading(false);
-    }, 100);
+    }, 1000);
   };
 
 
@@ -32,6 +32,10 @@ const Results = () => {
   const endIndex = startIndex + itemsPerPage;
 
   const paginatedResults = searchResults.slice(startIndex, endIndex);
+
+  const closeMobileView = () => {
+      setSelectedItemIndex(null)
+  }
 
   return (
     <>
@@ -90,7 +94,8 @@ const Results = () => {
         )}
 
             {selectedItemIndex !== null && (
-            <div className='selected-image'>
+            <div className='selected-image' >
+              <div className='layer' onClick={closeMobileView}></div>
               <div className='selected-img-card'>
                 {isLoading ? (
                   <div className='loader'></div>
