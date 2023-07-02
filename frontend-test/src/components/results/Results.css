@@ -104,6 +104,37 @@
     margin-top: 2rem;
 }
 
+.results-pagination {
+    display: flex;
+    flex-direction: column;
+}
+
+.results-pagination img {
+    width: 130px;
+    margin-top: 1rem;
+}
+
+.pagination-controls {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0.5rem auto 0.2rem;
+    gap: 10px;
+}
+
+.pagination-controls button {
+    padding: 5px 10px;
+    background: transparent;
+    color: var(--pages);
+    cursor: pointer;
+    border: none;
+}
+
+.pagination-controls button:disabled {
+    color: var(--page-disabled);
+}
+
 .layer {
     display: none;
 }

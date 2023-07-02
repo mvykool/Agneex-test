@@ -13,6 +13,8 @@
     --result-title: #4e4bab;
     --result-text: #202020;
     --loader: #6093d5;
+    --pages: #121de9;
+    --page-disabled: #7c7c7c;
 }
 
 * {

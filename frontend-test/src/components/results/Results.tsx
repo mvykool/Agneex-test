@@ -1,6 +1,9 @@
 import { useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { SearchContext } from '../../context/SearchContext';
+import ResultsList from './ResultsList';
+import Pagination from './Pagination';
+import SelectedImage from './SelectedImage';
 import './Results.css';
 
 const Results = () => {
@@ -18,7 +21,7 @@ const Results = () => {
     }, 1000);
   };
 
-
+  //pagination logic
   const handlePreviousPage = () => {
     setCurrentPage((prevPage) => prevPage - 1);
   };
@@ -32,9 +35,11 @@ const Results = () => {
   const endIndex = startIndex + itemsPerPage;
 
   const paginatedResults = searchResults.slice(startIndex, endIndex);
+  const totalPages = Math.ceil(searchResults.length / itemsPerPage);
 
+  //close selected items in mobile
   const closeMobileView = () => {
-      setSelectedItemIndex(null)
+    setSelectedItemIndex(null)
   }
 
   return (
@@ -55,65 +60,36 @@ const Results = () => {
       )}
 
       {errorMessage ? <p className="error">{errorMessage}</p> : null}
-  
+
       <section className='results-container'>
         {searchResults.length > 0 ? (
           <>
-            {paginatedResults.map((item, index) => (
-              <div key={item.id} className='result-block'>
-                <small>{item.url}</small>
-                <h2 onClick={() => handleTitleClick(index)}>{item.title}</h2>
-                <p>{item.description}</p>
-              </div>
-            ))}
+            <ResultsList paginatedResults={paginatedResults} handleTitleClick={handleTitleClick} />
 
             {searchResults.length > itemsPerPage && (
-              <div className='pagination-controls'>
-                <button
-                  disabled={currentPage === 1}
-                  onClick={handlePreviousPage}
-                >
-                  Previous
-                </button>
-                <span>Page {currentPage}</span>
-                <button
-                  disabled={endIndex >= searchResults.length}
-                  onClick={handleNextPage}
-                >
-                  Next
-                </button>
-              </div>
+              <Pagination 
+                currentPage={currentPage}
+                totalPages={totalPages}
+                handlePreviousPage={handlePreviousPage}
+                handleNextPage={handleNextPage}
+              />
             )}
           </>
         ) : (
-
           <div className='no-data-container'>
             <div>Not results found for  "<span>{searchTerm}"</span> </div>
             {!errorMessage ? <div >Trying looking for: <span>bear, lion, cat, bird, cow, horse </span> </div> : null}
           </div>        
         )}
 
-            {selectedItemIndex !== null && (
-            <div className='selected-image' >
-              <div className='layer' onClick={closeMobileView}></div>
-              <div className='selected-img-card'>
-                {isLoading ? (
-                  <div className='loader'></div>
-                ) : (
-                  <>
-                    <img
-                      src={searchResults[selectedItemIndex].image}
-                      alt='Selected Item'
-                    />
-                    <small>{searchResults[selectedItemIndex].url}</small>
-                    <h3>{searchResults[selectedItemIndex].title}</h3>
-                    <p>{searchResults[selectedItemIndex].description}</p>
-                  </>
-                )}
-              </div>
-            </div>
-          )}
-        </section>
+        {selectedItemIndex !== null && (
+          <SelectedImage 
+            selectedItem={searchResults[selectedItemIndex]} 
+            closeMobileView={closeMobileView} 
+            isLoading={isLoading} 
+          />
+        )}
+      </section>
     </>
   );
 };
