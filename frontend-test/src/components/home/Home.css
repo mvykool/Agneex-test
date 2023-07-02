@@ -58,3 +58,32 @@
         box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px;
     }
 }
+
+@media screen and (max-width: 992px) {
+    .main-content {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        margin: 1rem auto 3rem;
+        min-height: 70vh;
+    }
+    .logo {
+        display: flex;
+        justify-content: center;
+        margin: 10rem auto 0;
+        width: 280px;
+    }
+    .search-btn {
+        margin: 25px auto;
+        padding: 10px 25px;
+        background: var(--search-btn);
+        border: #fff solid 1px;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    .search-btn:hover {
+        border: var(--search-btn-hover) solid 1px;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px;
+    }
+}
