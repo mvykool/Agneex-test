@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker';
 import { IData } from '../context/SearchContext';
 
-const getImage = () => faker.image.urlLoremFlickr({ category:  'animals', width: 644, height: 362 });
+const getImage = () => faker.image.urlLoremFlickr({ category:  'animals', width: 600, height: 360 });
 const getType = () => faker.animal.type();
 const getUrl = () => faker.internet.url();
 const getText = () => faker.lorem.sentences();
