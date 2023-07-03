@@ -1,5 +1,5 @@
-import { useState, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useState, useContext, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { SearchContext } from '../../context/SearchContext';
 import ResultsList from './ResultsList';
 import Pagination from './Pagination';
@@ -7,11 +7,19 @@ import SelectedImage from './SelectedImage';
 import './Results.css';
 
 const Results = () => {
-  const { searchResults, errorMessage } = useContext(SearchContext);
+  const { searchTerm,searchResults, errorMessage } = useContext(SearchContext);
   const [selectedItemIndex, setSelectedItemIndex] = useState<number | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const { searchTerm } = useParams<{ searchTerm: string }>();
+  const { query } = useParams<{ query: string }>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!searchTerm) {
+      navigate('/');
+    }
+  }, [searchTerm, navigate]);
+
 
   const handleTitleClick = (index: number) => {
     setSelectedItemIndex(index);
@@ -56,7 +64,7 @@ const Results = () => {
         </ul>
       </div>
       {searchResults.length > 0 && (
-        <p className='query'>Resultados de: <span>{searchTerm}</span></p>
+        <p className='query'>Resultados de: <span>{query}</span></p>
       )}
 
       {errorMessage ? <p className="error">{errorMessage}</p> : null}
@@ -77,7 +85,7 @@ const Results = () => {
           </>
         ) : (
           <div className='no-data-container'>
-            <div>Not results found for  "<span>{searchTerm}"</span> </div>
+            <div>Not results found for  "<span>{query}"</span> </div>
             {!errorMessage ? <div >Trying looking for: <span>bear, lion, cat, bird, cow, horse </span> </div> : null}
           </div>        
         )}
