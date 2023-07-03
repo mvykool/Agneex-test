@@ -6,8 +6,6 @@ import { Routes, Route} from "react-router-dom";
 import SearchProvider from './context/SearchProvider';
 import NotFound from "./components/shared/notfound/NotFound";
 
-
-
 function App() {
 
   return (
@@ -15,7 +13,7 @@ function App() {
       <Navbar/>
         <Routes>
             <Route path="/" element={<Home/>} />
-            <Route path="/results/:searchTerm" element={<Results/>} />  
+            <Route path="/results" element={<Results/>} />  
             <Route path="*" element={<NotFound/>} />
         </Routes>
       <Footer/> 

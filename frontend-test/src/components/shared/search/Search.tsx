@@ -32,7 +32,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     }
     setErrorMessage(""); 
     setSearchTerm(inputValue); 
-    navigate(`/results/${inputValue}`);
+    navigate(`/results`);
     search(inputValue);
 };
 

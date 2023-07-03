@@ -8,7 +8,7 @@ import './Navbar.css';
 const Navbar = () => {
 const { searchTerm, setSearchTerm } = useContext(SearchContext);
 const location = useLocation();
-const isResultsPage = location.pathname === `/results/${searchTerm}`;
+const isResultsPage = location.pathname === `/results`;
 const isHomePage = location.pathname === "/";
 
 //keep query in input field
