@@ -57,15 +57,15 @@ I've written a few simple tests that can be run with the following command:
 
 - Third I created the view when clicking on a title
 
-<img src="/frontend-test/src/assets/images/docs-2.png" alt="docs-3" />
+<img src="/frontend-test/src/assets/images/docs-3.png" alt="docs-3" />
 
 
 - When search for something that is not available
 
-<img src="/frontend-test/src/assets/images/docs-2.png" alt="docs-4" />
+<img src="/frontend-test/src/assets/images/docs-4.png" alt="docs-4" />
 
 
 - Totally responsive
 
-<img src="/frontend-test/src/assets/images/docs-2.png" alt="docs-5" />
+<img src="/frontend-test/src/assets/images/docs-5.png" alt="docs-5" />
 
