@@ -7,6 +7,7 @@ import SearchProvider from './context/SearchProvider';
 import NotFound from "./components/shared/notfound/NotFound";
 
 
+
 function App() {
 
   return (
