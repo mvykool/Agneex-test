@@ -1,5 +1,5 @@
-import { useState, useContext, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useState, useContext, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 import { SearchContext } from '../../context/SearchContext';
 import ResultsList from './ResultsList';
 import Pagination from './Pagination';
@@ -7,19 +7,35 @@ import SelectedImage from './SelectedImage';
 import './Results.css';
 
 const Results = () => {
-  const { searchTerm,searchResults, errorMessage } = useContext(SearchContext);
+  const { searchTerm, setSearchTerm, searchResults, errorMessage } = useContext(SearchContext);
   const [selectedItemIndex, setSelectedItemIndex] = useState<number | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const { query } = useParams<{ query: string }>();
+
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const navigate = useNavigate();
+
+  // Retrieve searchTerm from localStorage on component mount
+  useEffect(() => {
+    const storedSearchTerm = localStorage.getItem('searchTerm');
+    if (storedSearchTerm) {
+      setSearchTerm(storedSearchTerm);
+    }
+  }, [setSearchTerm]);
+
+  // Update localStorage when searchTerm changes
+  useEffect(() => {
+    if (searchTerm) {
+      localStorage.setItem('searchTerm', searchTerm);
+    } else {
+      localStorage.removeItem('searchTerm');
+    }
+  }, [searchTerm]);
 
   useEffect(() => {
     if (!searchTerm) {
       navigate('/');
     }
   }, [searchTerm, navigate]);
-
 
   const handleTitleClick = (index: number) => {
     setSelectedItemIndex(index);
@@ -64,7 +80,7 @@ const Results = () => {
         </ul>
       </div>
       {searchResults.length > 0 && (
-        <p className='query'>Resultados de: <span>{query}</span></p>
+        <p className='query'>Resultados de: <span>{searchTerm}</span></p>
       )}
 
       {errorMessage ? <p className="error">{errorMessage}</p> : null}
@@ -85,7 +101,7 @@ const Results = () => {
           </>
         ) : (
           <div className='no-data-container'>
-            <div>Not results found for  "<span>{query}"</span> </div>
+            <div>Not results found for  "<span>{searchTerm}"</span> </div>
             {!errorMessage ? <div >Trying looking for: <span>bear, lion, cat, bird, cow, horse </span> </div> : null}
           </div>        
         )}
