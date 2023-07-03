@@ -43,7 +43,7 @@ const Results = () => {
   }
 
   return (
-    <>
+    <section>
       {/* sub-navbar */}
       <div className='under-nav'>
         <ul className='under-nav-list'>
@@ -90,7 +90,7 @@ const Results = () => {
           />
         )}
       </section>
-    </>
+    </section>
   );
 };
 

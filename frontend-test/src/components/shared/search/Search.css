@@ -12,6 +12,11 @@
     ;
 }
 
+.search-btn-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 .color-icons {
     display: flex;
     gap: 20px;

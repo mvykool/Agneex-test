@@ -36,6 +36,8 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     search(inputValue);
 };
 
+const isButtonDisabled = !inputValue.trim();
+
 //dynamic icons
 
 const searchIconClass = isResultsPage ? 'icon-result fa fa-search' : 'icon-home fa fa-search';
@@ -63,7 +65,7 @@ return (
         )}
         </div>
         {!isResultsPage && (
-        <button type='submit' className="search-btn">
+        <button type='submit' className="search-btn"  disabled={isButtonDisabled}>
             Buscar
         </button>
         )}
