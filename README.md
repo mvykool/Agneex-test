@@ -5,7 +5,7 @@ Front-end challenge, developed using TypeScript, vite, React, & CSS:
 ## View deployed project
 
 The project has been deployed to Vercel:
-<a href="https://frontend-test-sand.vercel.app" />
+https://frontend-test-sand.vercel.app 
 
 ## Run locally
 
@@ -57,15 +57,15 @@ I've written a few simple tests that can be run with the following command:
 
 - Third I created the view when clicking on a title
 
-<img src="/frontend-test/src/assets/images/docs-2.png" alt="docs-3" />
+<img src="/frontend-test/src/assets/images/docs-3.png" alt="docs-3" />
 
 
 - When search for something that is not available
 
-<img src="/frontend-test/src/assets/images/docs-2.png" alt="docs-4" />
+<img src="/frontend-test/src/assets/images/docs-4.png" alt="docs-4" />
 
 
 - Totally responsive
 
-<img src="/frontend-test/src/assets/images/docs-2.png" alt="docs-5" />
+<img src="/frontend-test/src/assets/images/docs-5.png" alt="docs-5" />
 
