@@ -5,7 +5,7 @@ Front-end challenge, developed using TypeScript, vite, React, & CSS:
 ## View deployed project
 
 The project has been deployed to Vercel:
-<a href="https://frontend-test-sand.vercel.app" />
+https://frontend-test-sand.vercel.app 
 
 ## Run locally
 
