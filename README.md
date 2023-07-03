@@ -27,11 +27,45 @@ In order to run the project locally do the following:
 ```javascript
     npm install
 ```
-## Uso
+## Usage
 
 As mentioned above, the project runs with Vite.js, type the following command in the terminal:
 ```javascript
   npm run dev
 ```
 This will make the project run on  [http://localhost:3000](http://localhost:3000).
+
+
+## TESTING
+
+I've written a few simple tests that can be run with the following command:
+```javascript
+  npm test
+```
+
+# Implementations
+
+- First I created the The initial state of the application:
+
+<img src="/frontend-test/src/assets/images/docs-1.png" alt="docs-1" />
+
+
+- Second I created the results page:
+
+<img src="/frontend-test/src/assets/images/docs-2.png" alt="docs-1" />
+
+
+- Third I created the view when clicking on a title
+
+<img src="/frontend-test/src/assets/images/docs-2.png" alt="docs-3" />
+
+
+- When search for something that is not available
+
+<img src="/frontend-test/src/assets/images/docs-2.png" alt="docs-4" />
+
+
+- Totally responsive
+
+<img src="/frontend-test/src/assets/images/docs-2.png" alt="docs-5" />
 

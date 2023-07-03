@@ -76,7 +76,7 @@ footer p {
     }
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (min-width: 700px) and ( max-width: 900px) {
     .sub-footer ul {
         margin: 0;
         display: flex;

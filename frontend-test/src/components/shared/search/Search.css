@@ -234,7 +234,7 @@ input[type="search"]::-webkit-search-results-decoration {
     }
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (min-width: 700) and ( max-width: 992px) {
     .search-container {
         display: flex;
         justify-content: center;
