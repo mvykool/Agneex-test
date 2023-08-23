@@ -1,6 +1,6 @@
-# Agneex-test
+# Google Simple Clone
 
-Front-end challenge, developed using TypeScript, vite, React, & CSS:
+Developed using TypeScript, vite, React, & CSS:
 
 ## View deployed project
 
