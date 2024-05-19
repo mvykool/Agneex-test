@@ -1,6 +1,6 @@
 ## Todo
 
-- [] Make it deploy
+- [x] Make it deploy
 - [] Scaffold basic UI with mock data
 - [] Actually set up a database (Postgres, w/ Vercel)
 - [] Attach database to UI 
