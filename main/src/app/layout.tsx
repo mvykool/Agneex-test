@@ -1,4 +1,6 @@
 import "~/styles/globals.css";
+import { TopNav } from "./_components/topnav";
+import { ClerkProvider } from "@clerk/nextjs"
 
 import { GeistSans } from "geist/font/sans";
 
@@ -8,26 +10,19 @@ export const metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-function TopNav() {
-  return (
-    <nav className="flex items-center justify-between w-full p-4 text-xl font-semibold border-b mb-4">
-      <p>Gallery</p>
-      <div>Sign in</div>
-    </nav>
-  )
-}
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${GeistSans.variable}`}>
-      <body>
-        <TopNav />
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" className={`${GeistSans.variable}`}>
+        <body>
+          <TopNav />
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
