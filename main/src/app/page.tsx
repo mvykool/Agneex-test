@@ -5,7 +5,6 @@ import Image from "next/image";
 export const dynamic = "force-dynamic"
 
 async function Images() {
-
   const images = await getImages();
 
   return (

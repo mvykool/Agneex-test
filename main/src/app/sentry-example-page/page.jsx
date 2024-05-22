@@ -60,7 +60,7 @@ export default function Page() {
             });
           }}
         >
-          Throw error!
+          Throw error
         </button>
 
         <p>
